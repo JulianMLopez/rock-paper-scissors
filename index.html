@@ -14,58 +14,74 @@
             return (options[Math.floor(Math.random() *options.length)]);
         }
 
+        let playerScore = 0;
+        let computerScore = 0;
+
         function playRound (player, computer) {
 
             let playerSelection = prompt('Choose: Rock, Paper, or Scissors', '');
             let computerSelection = computerPlay();
-            
-            let win = `You win, ${playerSelection.toLowerCase()} beats ${computerSelection.toLowerCase()}!`;
-            let lose = `You lose, ${computerSelection.toLowerCase()} beats ${playerSelection.toLowerCase()}!`;
-            let draw = `Draw, try again!`;
+
+            function win () {
+                playerScore ++;
+                return `You win, ${playerSelection.toLowerCase()} beats ${computerSelection.toLowerCase()}!
+Player Score = ${playerScore}
+Computer Score = ${computerScore}`;
+            }
+
+            function lose () {
+                computerScore ++;
+                return `You lose, ${computerSelection.toLowerCase()} beats ${playerSelection.toLowerCase()}!
+Player Score = ${playerScore}
+Computer Score = ${computerScore}`;
+            }
+
+            function draw () {
+                return `Draw, (${playerSelection.toLowerCase()} & ${computerSelection.toLowerCase()}) try again!
+Player Score = ${playerScore}
+Computer Score = ${computerScore}.`;
+            }
 
             if (playerSelection.toLowerCase() == 'rock') {
                 if (computerSelection == 'Scissors') {
-                    return win;
+                    return win();
                 }
                 else if (computerSelection == 'Paper') {
-                    return lose;
+                    return lose();
                 }
                 else {
-                    return draw;
+                    return draw();
                 }
             }
             
             if (playerSelection.toLowerCase() == 'paper') {
                 if (computerSelection == 'Rock') {
-                    return win;
+                    return win();
                 }
                 else if (computerSelection == 'Scissors') {
-                    return lose;
+                    return lose();
                 }
                 else {
-                    return draw;
+                    return draw();
                 }
             }
 
             if (playerSelection.toLowerCase() == 'scissors') {
                 if (computerSelection == 'Paper') {
-                    return win;
+                    return win();
                 }
                 else if (computerSelection == 'Rock') {
-                    return lose;
+                    return lose();
                 }
                 else {
-                    return draw;
+                    return draw();
                 }
             }
-
-            
-            
         }
     
-        
-
         console.log(playRound());
+
+        function game ()
 
     </script>
     
