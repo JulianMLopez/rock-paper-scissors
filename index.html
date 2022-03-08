@@ -1,109 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <script>
-
-        function computerPlay () {
-            let options = ['Rock', 'Paper', 'Scissors'];
-            return (options[Math.floor(Math.random() *options.length)]);
-        }
-
-        let playerScore = 0;
-        let computerScore = 0;
-        
-
-        function playRound () {
-
-            let playerSelection = prompt ('Choose: Rock, Paper, or Scissors', '');
-            let computerSelection = computerPlay();
-
-            function win () {
-                playerScore ++;
-                return `You win, ${playerSelection.toLowerCase()} beats ${computerSelection.toLowerCase()}!
-Player Score = ${playerScore}
-Computer Score = ${computerScore}`;
-            }
-
-            function lose () {
-                computerScore ++;
-                return `You lose, ${computerSelection.toLowerCase()} beats ${playerSelection.toLowerCase()}!
-Player Score = ${playerScore}
-Computer Score = ${computerScore}`;
-            }
-
-            function draw () {
-                return `Draw, (${playerSelection.toLowerCase()} & ${computerSelection.toLowerCase()}) try again!
-Player Score = ${playerScore}
-Computer Score = ${computerScore}.`;
-            }
-
-            if (playerSelection.toLowerCase() == 'rock') {
-                if (computerSelection == 'Scissors') {
-                    return win();
-                }
-                else if (computerSelection == 'Paper') {
-                    return lose();
-                }
-                else {
-                    return draw();
-                }
-            }
-            
-            if (playerSelection.toLowerCase() == 'paper') {
-                if (computerSelection == 'Rock') {
-                    return win();
-                }
-                else if (computerSelection == 'Scissors') {
-                    return lose();
-                }
-                else {
-                    return draw();
-                }
-            }
-
-            if (playerSelection.toLowerCase() == 'scissors') {
-                if (computerSelection == 'Paper') {
-                    return win();
-                }
-                else if (computerSelection == 'Rock') {
-                    return lose();
-                }
-                else {
-                    return draw();
-                }
-            }
-        }
-
-        function game() {
-            for (let i = 0; i < 5; i++) {
-                playRound();
-            }
-            if (playerScore > computerScore) {
-                return `You win! 
-Player score = ${playerScore} 
-Computer score = ${computerScore}`;
-            }
-            else if (computerScore > playerScore) {
-                return `You lose! 
-Player score = ${playerScore} 
-Computer score = ${computerScore}`;
-            }
-            else {
-                return `It's a draw! 
-Player score = ${playerScore} 
-Computer score = ${computerScore}`;
-            }
-        } 
-
-        console.log(game());
-
-    </script>
-    
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+    <div id="container">
+        <div class="scoreboard">
+            <h2 id="score-heading">First to 5</h2>
+            <div class="score">
+                <p id="player-score">You = 0</p>
+                <p id="computer-score">Computer = 0</p>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+    </div>
 </body>
 </html>
